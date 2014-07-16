@@ -1,30 +1,45 @@
 require 'csv'
 
-# Read & Write Microsoft Excel compliant CSV files, including basic
-# support for Excel running on Windows in Germany.
 class ExcelCSV
+  # Read & Write Microsoft Excel compliant CSV files, including basic
+  # support for Excel running on Windows in Germany.
 
   class << self
+    # Encoding used to read, generate and write CSV.
+    #
+    # Not used by +parse+.
     def encoding
       Encoding::Windows_1252
     end
 
+    # Read in an Excel-generated CSV from disk using +encoding+.
+    #
+    # +options+ and a block are passed directly to CSV's +parse+ method.
     def read filename, options = {}, &block
       file = File.open filename, external_encoding: encoding, internal_encoding: 'UTF-8'
       _read file, options, &block
     end
 
+    # Parse an Excel-generated CSV string.
+    #
+    # +options+ and a block are passed directly to CSV's +parse+ method.
     def parse string, options = {}, &block
       file = StringIO.new(string)
       _read file, options, &block
     end
 
+    # Generate an Excel-compatiable CSV string using +encoding+.
+    #
+    # +options+ and a block are passed directly to CSV's +generate+ method.
     def generate options = {}, &block
       raise ArgumentError, "Block required" unless block_given?
       s = CSV.generate({ row_sep: "\r\n" }.merge(options), &block)
       encode_for_excel("sep=,\r\n" + s)
     end
 
+    # Write an Excel-compatiable CSV to disk using +encoding+.
+    #
+    # +options+ and a block are passed directly to CSV's +generate+ method.
     def write filename, options = {}, &block
       raise ArgumentError, "Block required" unless block_given?
       File.open(filename, 'wb') do |f|
