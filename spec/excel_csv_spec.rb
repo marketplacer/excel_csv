@@ -135,7 +135,7 @@ describe 'ExcelCSV' do
       end
       contents = File.open(@spreadsheet_file.path, 'rb').read
       expected = %Q(sep=,\r\n"Ad","hai?"\r\n"1","Fahrräder"\r\n).encode('Windows-1252')
-      expect(contents.bytes).to eq(expected.bytes)
+      expect(contents).to eq(expected.force_encoding('ASCII-8BIT'))
     end
   end
 end
