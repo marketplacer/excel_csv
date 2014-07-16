@@ -1,8 +1,8 @@
 require 'csv'
 
+# Read & Write Microsoft Excel compliant CSV files, including basic
+# support for Excel running on Windows in Germany.
 class ExcelCSV
-  # Read & Write Microsoft Excel compliant CSV files, including basic
-  # support for Excel running on Windows in Germany.
 
   class << self
     # Encoding used to read, generate and write CSV.
