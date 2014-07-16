@@ -1,11 +1,7 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'excel_csv/version'
-
 Gem::Specification.new do |spec|
   spec.name          = "excel_csv"
-  spec.version       = ExcelCsv::VERSION
+  spec.version       = "0.0.1"
   spec.authors       = ["The Exchange Group"]
   spec.email         = ["hello@teg.io"]
   spec.summary       = %q{Read & write CSV that can be used reliably in Australia and Europe}
