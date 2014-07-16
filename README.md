@@ -1,5 +1,7 @@
 # ExcelCSV
 
+[![Gem Version](https://badge.fury.io/rb/excel_csv.svg)](http://badge.fury.io/rb/excel_csv) [![Code Climate](https://codeclimate.com/github/exchangegroup/excel_csv.png)](https://codeclimate.com/github/exchangegroup/excel_csv)
+
 Read, parse, generate and write CSV directly compatiable with Microsoft Excel
 on a Windows & Mac.
 
@@ -8,6 +10,8 @@ on a Windows & Mac.
   * Some European countries use a semicolon instead of a comma as a field separator. **ExcelCSV** will try to autodetect this, and also supports Excel's proprietary `sep=` header.
   * Excel can't deal with UTF-8, and will read & write in the local character set, which is usually 'Windows-1252'. **ExcelCSV** reads & writes in this character set automatically.
   * Some versions of Excel can't deal with UNIX newlines. **ExcelCSV** forces DOS newlines.
+
+Full documentation for the latest gem release is at [RDoc](http://rubydoc.info/gems/excel_csv/frames)
 
 ## Installation
 
