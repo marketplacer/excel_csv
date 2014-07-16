@@ -1,6 +1,6 @@
 # ExcelCSV
 
-[![Gem Version](https://badge.fury.io/rb/excel_csv.svg)](http://badge.fury.io/rb/excel_csv) [![Code Climate](https://codeclimate.com/github/exchangegroup/excel_csv.png)](https://codeclimate.com/github/exchangegroup/excel_csv)
+[![Gem Version](https://badge.fury.io/rb/excel_csv.svg)](http://badge.fury.io/rb/excel_csv) [![Code Climate](https://codeclimate.com/github/exchangegroup/excel_csv.png)](https://codeclimate.com/github/exchangegroup/excel_csv) [![Build Status](https://travis-ci.org/exchangegroup/excel_csv.svg?branch=master)](https://travis-ci.org/exchangegroup/excel_csv)
 
 Read, parse, generate and write CSV directly compatiable with Microsoft Excel
 on a Windows & Mac.
