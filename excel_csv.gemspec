@@ -1,7 +1,7 @@
 # coding: utf-8
 Gem::Specification.new do |spec|
   spec.name          = "excel_csv"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.2"
   spec.authors       = ["The Exchange Group"]
   spec.email         = ["hello@teg.io"]
   spec.summary       = %q{Read & write CSV that can be used reliably by Microsoft Excel}
