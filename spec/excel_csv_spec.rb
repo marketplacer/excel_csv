@@ -8,8 +8,9 @@ require 'active_support/core_ext/string'
 # https://github.com/bbatsov/rubocop/issues/1210
 
 describe 'ExcelCSV' do
-  def write_csv s, options = {}
-    @spreadsheet_file = Tempfile.new(%w{spreadsheet .csv}, options)
+  def write_csv s
+    # Using ASCII-8BIT below ensures our text doesn't get transcoded.
+    @spreadsheet_file = Tempfile.new(%w{spreadsheet .csv}, encoding: 'ASCII-8BIT')
     @spreadsheet_file.write s
     @spreadsheet_file.close
     @spreadsheet_file.path
@@ -51,7 +52,12 @@ describe 'ExcelCSV' do
     end
 
     it "should read in Windows-1252 encoded characters and express them as UTF-8" do
-      rows = ExcelCSV.read write_csv("Ad Id,Fahrräder", encoding: 'Windows-1252')
+      rows = ExcelCSV.read write_csv("Ad Id,Fahrräder".encode('Windows-1252'))
+      expect(rows).to eq([["Ad Id", "Fahrräder"]])
+    end
+
+    it "should allow the encoding to be passed as an option" do
+      rows = ExcelCSV.read write_csv("Ad Id,Fahrräder".encode('UTF-16')), encoding: 'UTF-16'
       expect(rows).to eq([["Ad Id", "Fahrräder"]])
     end
 

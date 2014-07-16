@@ -8,14 +8,17 @@ class ExcelCSV
     # Encoding used to read, generate and write CSV.
     #
     # Not used by +parse+.
-    def encoding
+    def default_encoding
       Encoding::Windows_1252
     end
 
     # Read in an Excel-generated CSV from disk using +encoding+.
     #
-    # +options+ and a block are passed directly to CSV's +parse+ method.
+    # Accepts the +encoding+ option, otherwise uses +default_encoding+
+    #
+    # Other +options+ and a block are passed directly to CSV's +parse+ method.
     def read filename, options = {}, &block
+      encoding = options.delete(:encoding) || default_encoding
       file = File.open filename, external_encoding: encoding, internal_encoding: 'UTF-8'
       _read file, options, &block
     end
@@ -28,7 +31,7 @@ class ExcelCSV
       _read file, options, &block
     end
 
-    # Generate an Excel-compatiable CSV string using +encoding+.
+    # Generate an Excel-compatiable CSV string using +default_encoding+.
     #
     # +options+ and a block are passed directly to CSV's +generate+ method.
     def generate options = {}, &block
@@ -37,7 +40,7 @@ class ExcelCSV
       encode_for_excel("sep=,\r\n" + s)
     end
 
-    # Write an Excel-compatiable CSV to disk using +encoding+.
+    # Write an Excel-compatiable CSV to disk using +default_encoding+.
     #
     # +options+ and a block are passed directly to CSV's +generate+ method.
     def write filename, options = {}, &block
@@ -58,7 +61,7 @@ class ExcelCSV
     # rather than UTF-8. Importing UTF-8 is possible, but only in Excel 2013, and
     # has problems with line endings.
     def encode_for_excel s
-      s.encode(encoding, invalid: :replace, undef: :replace)
+      s.encode(default_encoding, invalid: :replace, undef: :replace)
     end
 
     def discover_col_sep file
