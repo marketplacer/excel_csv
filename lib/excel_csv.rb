@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'csv'
 
 # Read & Write Microsoft Excel compliant CSV files, including basic
