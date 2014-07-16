@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["The Exchange Group"]
   spec.email         = ["hello@teg.io"]
-  spec.summary       = %q{Read & write CSV that can be used reliably in Australia and Europe}
+  spec.summary       = %q{Read & write CSV that can be used reliably by Microsoft Excel}
   spec.description   = %q{}
   spec.homepage      = ""
   spec.license       = "MIT"
