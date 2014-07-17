@@ -78,9 +78,6 @@ class ExcelCSV
       # first line. This isn't 100% accurate, but as we can't rely
       # on Germany's Excel to emit the correct sep=; line, we need
       # to do something.
-      #
-      # Alternative is to rely on localisation, but I want spreadsheets
-      # to be portable between verticals.
 
       first_line.count(';') > first_line.count(',') ? ';' : ','
     rescue EOFError
