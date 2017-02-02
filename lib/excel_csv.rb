@@ -70,7 +70,7 @@ class ExcelCSV
     def discover_col_sep(file)
       first_line = file.readline
       # Search for sep=x first line & return separator
-      found_sep = /^sep=(.)$/.match(first_line.strip)
+      found_sep = /^sep=(.){1,}$/.match(first_line.strip)
       return found_sep[1] if found_sep
 
       file.rewind # Rewind, as we want CSV to be able to read the header
