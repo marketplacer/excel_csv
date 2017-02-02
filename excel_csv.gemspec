@@ -1,9 +1,9 @@
 # coding: utf-8
 Gem::Specification.new do |spec|
   spec.name          = "excel_csv"
-  spec.version       = "0.0.2"
-  spec.authors       = ["The Exchange Group"]
-  spec.email         = ["hello@teg.io"]
+  spec.version       = "0.0.3"
+  spec.authors       = ["Marketplacer"]
+  spec.email         = ["it@marketplacer.com"]
   spec.summary       = %q{Read & write CSV that can be used reliably by Microsoft Excel}
   spec.description   = %q{}
   spec.homepage      = ""
