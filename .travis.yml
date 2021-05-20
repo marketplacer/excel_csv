@@ -1,7 +1,9 @@
 language: ruby
 rvm:
+  - "2.6.5"
   - "2.1.1"
   - "2.0.0"
   - "1.9.3"
   - jruby-19mode # JRuby in 1.9 mode
+before_install: gem install bundler --no-rdoc --no-ri
 script: bundle exec rspec spec
